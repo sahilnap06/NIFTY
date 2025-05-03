@@ -341,7 +341,7 @@ const void Nifty::updateOF()
 		installRule(rule);
 	}
 
-	if(reach_count>=destinationsCount) // Can reach everyone directly
+	if(reach_count >= destinationsCount) // Can reach everyone directly
 		isBridgeNode[myIp] = true;
 	else
 		isBridgeNode[myIp] = false;
