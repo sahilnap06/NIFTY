@@ -78,7 +78,7 @@ Nifty::Nifty(std::string _myIp, std::string _myMac, unsigned int _pingingPeriod,
 
 void Nifty::start()
 {
-	//A seperate thread to ping others.
+	//A separate thread to ping others.
 	pingingThread = std::thread (&Nifty::pingOthers, this, false);
 	receiveMessages();
 }

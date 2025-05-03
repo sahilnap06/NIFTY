@@ -40,12 +40,24 @@ node3
 
 ```
 1
-node2_MAC
+node2_IP
 1
-node3_MAC
+node3_IP
 ```
 
 This effectively defines a partition between node2 and node3, while node1 can communicate with all the nodes.
+
+The first line is the `count` of nodes in the group, followed by `count` IP addresses. These are the groups that will not be able to speak with each other. However, at least one node of the cluster should NOT be part of either groups (to simulate "partial" failure).
+
+For e.g., if you have multiple nodes in one group, specify them as following:
+```
+1
+nodex_IP
+3
+nodex1_IP
+nodex2_IP
+nodex3_IP
+```
 
 4. From the controller node (node4) run the script ./deploy_partitioner.sh
 

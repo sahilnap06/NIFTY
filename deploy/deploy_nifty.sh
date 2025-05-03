@@ -6,7 +6,7 @@
 # If your ssh need more options, you can set them in the $sshOptions variable (you can set identify file, port, ...)
 sshOptions=" -T "
 
-# Iterate through all the nodes, get their brdige IPs and MACs and save them (used to update nifty's nodes.conf)
+# Iterate through all the nodes, get their bridge IPs and MACs and save them (used to update nifty's nodes.conf)
 ips="";
 macs="";
 nodesCount=0;
@@ -38,7 +38,7 @@ do
 	
 	echo "Starting NIFTY on node $nodeIP (which has IP address: $ip, and MAC address: $mac)"
 	# Could need to either run the script as sudo or add sudo here to be able to deploy rules. (or have OVS not require sudo)
-	ssh -n $sshOptions $nodeIP "cd $NIFTY_HOME && ./nifty -t 200 -i $ip -m $mac -c nifty_nodes.conf" &
+	ssh -n $sshOptions $nodeIP "cd $NIFTY_HOME && sudo ./nifty -t 200 -i $ip -m $mac -c nifty_nodes.conf" &
  
 done < ./nodes.conf
 
